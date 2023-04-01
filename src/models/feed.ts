@@ -1,24 +1,17 @@
 import {Schema, model} from "mongoose"
 
+// Schema para el feed de noticias, contiene un array de noticias
 const Feed = new Schema({
-    pubId: {
-        type: String,
+    date: {
+        type: Date,
         required: true,
     },
-    title: {
-        type: String,
-    },
-    description: {
-        type: String,
-    },
-    link: {
-        type: String,
-    },
-    pubDate: {
-        type: Date,
-    },
+    articles: {
+        type: Array,
+        default: [],
+    },    
 })
     
-Feed.index({pubId: 1}, {unique: true})
+Feed.index({date: 1}, {unique: true})
 
 export default model("Feed", Feed)
