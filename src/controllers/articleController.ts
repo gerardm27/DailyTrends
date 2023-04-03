@@ -1,7 +1,14 @@
-const getArticle = (req: Request, res: Response) => {
-    console.log("getArticle");
+import { Request, Response } from "express";
+
+export const getArticle = (req: Request, res: Response) => {
+  console.log("getArticle");
 };
 
-module.exports = {
-    getArticle
-}
+export const addArticle = (req: Request, res: Response) => {
+  console.log("addArticle");
+};
+
+export default {
+  getArticle,
+  addArticle,
+};

@@ -1,4 +1,2 @@
-module.exports = {
-    feedService: require("./services/feed.service"),
-    articleService: require("./services/article.service"),
-}
+export * as feedService from "./feed.service";
+export * as articleService from "./article.service";

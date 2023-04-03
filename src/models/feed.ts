@@ -6,7 +6,7 @@ const Feed = new Schema({
         type: Date,
         required: true,
     },
-    articles: {
+    articleIds: {
         type: Array,
         default: [],
     },    

@@ -1,3 +1,2 @@
-module.exports = {
-    Feed: require("./feed"),
-}
+export * as Article from "./article";
+export * as Feed from "./feed";

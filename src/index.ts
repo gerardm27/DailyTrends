@@ -7,7 +7,6 @@ import mongoose from "mongoose";
 
 import Feed from "./routes/feed";
 import Article from "./routes/article";
-//const docs = require("./docs");
 dotenv.config();
 
 mongoose

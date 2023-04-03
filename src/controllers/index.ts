@@ -1,3 +1,2 @@
-module.exports = {
-    feedController: require('./feedController'),
-};
+export * as feedController from "./feedController";
+export * as articleController from "./articleController";
