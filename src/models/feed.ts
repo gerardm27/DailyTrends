@@ -1,6 +1,6 @@
 import {Schema, model} from "mongoose"
 
-// Schema para el feed de noticias, contiene un array de noticias
+// Schema para el feed de noticias, contiene la fecha, el título, la url y la fuente
 const Feed = new Schema({
     date: {
         type: String,

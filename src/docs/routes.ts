@@ -1,18 +1,23 @@
-import {addToFeed, deleteFeed, getFeed, populateTodayFeed, updateFeed, getFeedByURL} from './feedController';
+import addToFeed from './feedController/addToFeed';
+import deleteFeed from './feedController/deleteFeed';
+import getFeed from './feedController/getFeed';
+import populateTodayFeed from './feedController/populateTodayFeed';
+import updateFeed from './feedController/updateFeed';
+import getFeedByURL from './feedController/getFeedByURL';
 
 export default {
     paths: {
         '/api/feed/': {
             ...getFeed,
-            ...addToFeed
+            ...addToFeed,
         },
         '/api/feed/{url}': {
-            ...updateFeed,
             ...getFeedByURL,
-            ...deleteFeed
+            ...updateFeed,
+            ...deleteFeed,
         },
         '/api/feed/populate': {
-            ...populateTodayFeed
-        }
+            ...populateTodayFeed,
+        },
     }
 }

@@ -1,6 +1,7 @@
 import {ErrorRequestHandler, Request, Response, NextFunction} from "express";
 import feedService from "../services/feed.service";
 
+// Obtener el feed de hoy
 const getFeed = async (req: Request, res: Response) => {
     try {
         const feed = await feedService.getFeed();
@@ -10,6 +11,7 @@ const getFeed = async (req: Request, res: Response) => {
     }
 };
 
+// Obtener un feed por URL
 const getFeedByURL = async (req: Request, res: Response) => {
     try {
         const url = req.params.url;
@@ -20,6 +22,7 @@ const getFeedByURL = async (req: Request, res: Response) => {
     }
 };
 
+// Actualizar un feed
 const updateFeed = async (req: Request, res: Response) => {
     try {
         const feed = await feedService.updateFeed(req.params.url, req.body);
@@ -29,6 +32,7 @@ const updateFeed = async (req: Request, res: Response) => {
     }
 };
 
+// Añadir un feed
 const addToFeed = async (req: Request, res: Response) => {
     try {
         const feed = await feedService.addToFeed(req.body);
@@ -38,6 +42,7 @@ const addToFeed = async (req: Request, res: Response) => {
     }
 };
 
+// Eliminar un feed
 const deleteFeed = async (req: Request, res: Response) => {
     try {
         await feedService.deleteFeed(req.params.url);
@@ -47,10 +52,11 @@ const deleteFeed = async (req: Request, res: Response) => {
     }
 };
 
+// Añadir todos los feeds de hoy
 const populateTodayFeed = async (req: Request, res: Response) => {
     try {
-        const feed = await feedService.populateTodayFeed();
-        res.redirect('/feed');
+        const newFeed = await feedService.populateTodayFeed();
+        res.status(200).json(newFeed);
     } catch (error: any) {
         res.status(500).json({error: error.message});
     }
@@ -59,6 +65,7 @@ const populateTodayFeed = async (req: Request, res: Response) => {
 
 export default {
     getFeed,
+    getFeedByURL,
     updateFeed,
     addToFeed,
     deleteFeed,

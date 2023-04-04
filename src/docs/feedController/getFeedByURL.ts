@@ -5,15 +5,15 @@ export default {
         description: "Get a feed by its URL",
         operationId: "getFeedByURL",
         parameters: [
+            
             {
-                url: {
-                    name: "url",
-                    in: "path",
-                    description: "URL of the feed",
-                    required: true,
-                    schema: {
-                        type: "string",
-                    },
+                name: "url",
+                in: "path",
+                description: "URL of the feed",
+                required: true,
+                schema: {
+                    type: "string",
+                    example: "https://elpais.com/ideas/2023-04-03/el-declive-de-cuyo.html"
                 },
             },
         ],
